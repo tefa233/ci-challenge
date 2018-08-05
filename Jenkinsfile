@@ -1,5 +1,4 @@
 pipeline {
-    agent {}
     stages {
         stage('build and deploy SUT') {
             steps {

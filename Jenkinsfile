@@ -7,7 +7,7 @@ def firefox='firefox-${BUILD_NUMBER}'
 
 
 pipeline {
-    agent { docker }
+    agent { label 'docker' }
     stages {
         stage('Setting Up Selenium Grid') {
             steps{

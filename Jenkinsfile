@@ -1,9 +1,18 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent {}
     stages {
-        stage('build') {
+        stage('build and deploy SUT') {
             steps {
-                sh 'mvn --version'
+                sh "echo 'building SUT....'"
+                sh 'sleep 10000'
+                sh "echo 'deploying SUT....'"
+                sh 'sleep 10000'
+            }
+        }
+        stage {
+            steps{
+                sh 'echo testing'
+                sh './gradlew test aggregate'
             }
         }
     }

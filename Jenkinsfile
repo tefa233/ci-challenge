@@ -4,9 +4,9 @@ pipeline {
         stage('build') {
             steps {
                 sh "echo 'building SUT....'"
-                sh "sleep 10000"
+                sh "sleep 10,SECONDS"
                 sh "echo 'deploying SUT....'"
-                sh "sleep 10000"
+                sh "sleep 10,SECONDS"
             }
         }
         stage('Execute Automation Testing'){

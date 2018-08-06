@@ -1,13 +1,5 @@
-
-
-def network='myNetwork'
-def seleniumHub='selenium-hub-${BUILD_NUMBER}'
-def chrome='chrome-${BUILD_NUMBER}'
-def firefox='firefox-${BUILD_NUMBER}'
-
-
 pipeline {
-    agent { none }
+    agent any
     stages {
         stage('build') {
             steps {
@@ -17,30 +9,9 @@ pipeline {
                 sh "sleep 10000"
             }
         }
-
-        stage(){
+        stage('Execute Automation Testing'){
             sh 'chmod ugo+x chromedriver'
+            sh './gradlew test aggregate'
         }
     }
 }
-
-/*
-pipeline {
-    agent { any }
-    stages {
-        stage('build and deploy SUT') {
-            steps {
-                sh "echo 'building SUT....'"
-                sh 'sleep 10000'
-                sh "echo 'deploying SUT....'"
-                sh 'sleep 10000'
-            }
-        }
-        stage("Execute Automation Testing") {
-            steps {
-                sh 'echo testing'
-                sh './gradlew test aggregate'
-            }
-        }
-    }
-}*/

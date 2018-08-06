@@ -10,8 +10,10 @@ pipeline {
             }
         }
         stage('Execute Automation Testing'){
-            sh 'chmod ugo+x chromedriver'
-            sh './gradlew test aggregate'
+            steps{
+               sh 'chmod ugo+x chromedriver'
+               sh './gradlew test aggregate'
+            }
         }
     }
 }

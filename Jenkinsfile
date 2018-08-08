@@ -1,8 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
-        // Deploy app (mock)
+        stage('Deploy app (mock)') {
             steps {
                 sh "echo 'building SUT....'"
                 sh "sleep 10"
@@ -17,10 +16,9 @@ pipeline {
                sh 'chmod ugo+x chromedriver'
 
             // starts automation execution
-               sh './gradlew test aggregate'
+               sh 'mvn clean verify'
 
             // config reports for testing results
-
                publishHTML (target: [
                      allowMissing: false,
                      alwaysLinkToLastBuild: false,

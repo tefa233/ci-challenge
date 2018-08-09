@@ -8,6 +8,12 @@ pipeline {
                 sh "echo 'deploying SUT....'"
                 sh "sleep 10"
             }
+
+            steps {
+                            sh "mvn clean verify"
+                        }
         }
     }
+
+
 }

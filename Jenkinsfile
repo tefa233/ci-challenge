@@ -11,12 +11,14 @@ pipeline {
 
 
         }
+
+         stage('Deploy app (testing)') {
+                          steps {
+                              sh "mvn clean verify"
+
+                          }
+
     }
-
-   stage('Deploy app (testing)') {
-                  steps {
-                      sh "mvn clean verify"
-
-                  }
+}
 
 }
